@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+class Frequency {
+    int checkFrequency(String str, char ch) {
+        int count = 0;
+        int n = str.length();
+        for (int i = 0; i < n; i++) {
+            if (str.charAt(i) == ch)
+                count++;
+        }
+        return count;
+    }
+}
+
+public class FrequencyCount {
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        Frequency f = new Frequency();
+        System.out.print("Enter a string: ");
+        String s = sc.nextLine();
+        System.out.print("Enter a character to check occurence: ");
+        char c = sc.next().charAt(0);
+        int freq = f.checkFrequency(s, c);
+        System.out.println("The number of occurence of character " + c + "=" + freq);
+        sc.close();
+    }
+}
