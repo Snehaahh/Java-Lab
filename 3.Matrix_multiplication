@@ -1,0 +1,45 @@
+import java.util.Scanner;
+public class Matrix {
+    public static void main(String a[]) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter the no of rows and columns of first matrix");
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        System.out.println("Enter the no of rows and columns of second matrix");
+        int p=sc.nextInt();
+        int q=sc.nextInt();
+        if(n!=p) 
+            System.out.println("Matrix multiplication cannot be done");
+        else {
+            int A[][]=new int[m][n];
+            int B[][]=new int[p][q];
+            System.out.println("Enter elements of first matrix");
+            for(int i=0;i<m;i++) {
+                for(int j=0;j<n;j++) 
+                    A[i][j]=sc.nextInt();
+            }
+            System.out.println("Enter elements of second matrix");
+            for(int i=0;i<p;i++) {
+                for(int j=0;j<q;j++) 
+                    B[i][j]=sc.nextInt();
+            }
+            //matrix multiplication
+            int C[][]=new int[m][q];
+            for(int i=0;i<m;i++) {
+                for(int j=0;j<q;j++) {
+                    C[i][j]=0;
+                    for(int k=0;k<n;k++) 
+                        C[i][j]+=A[i][k]*B[k][j];
+                }
+            }
+            //printing
+            for(int i=0;i<m;i++) {
+                for(int j=0;j<q;j++) {
+                    System.out.print(C[i][j]+"  ");
+                }
+                System.out.println();
+        }
+    }
+    sc.close();
+}
+}
