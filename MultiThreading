@@ -1,0 +1,44 @@
+import java.util.Random;
+class T1 implements Runnable {
+static int num;
+Random rand=new Random();
+synchronized public void run() {
+num=rand.nextInt(20);
+System.out.println("Random number="+num);	
+}
+}
+class T2 implements Runnable {
+	public void run() {
+		if(T1.num%2==0) 
+			System.out.println("Square="+(T1.num*T1.num));
+}
+}
+class T3 implements Runnable {
+	public void run() {
+		if(T1.num%2!=0) 
+			System.out.println("Cube="+(T1.num*T1.num*T1.num));
+}
+}
+class Multi {
+public static void main(String a[]) {
+	for(int i=0;i<10;i++) {
+		T1 o=new T1();
+		Thread t1=new Thread(o);
+		Thread t2=new Thread(new T2());
+		Thread t3=new Thread(new T3());
+		t1.setPriority(9);
+		t2.setPriority(4);
+		t3.setPriority(4);
+		t1.start();
+		t2.start();
+		t3.start();
+		try {
+			Thread.sleep(1000);
+		}
+		catch(InterruptedException e) {
+		System.out.println(e);
+		}
+		
+}
+}
+}
