@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+class Exception {
+    static void func() throws IllegalAccessException {
+        System.out.println("inside function");
+        throw new IllegalAccessException("demo");
+    }
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int c;
+        System.out.println("Enter value of a: ");
+        int a = sc.nextInt();
+        System.out.println("Enter value of b: ");
+        int b = sc.nextInt();
+        // try {
+        try {
+            c = a / b;
+            System.out.println("Result: " + c);
+        } catch (ArithmeticException e) {
+            System.out.println(e);
+        } finally {
+            System.out.println("Inside finally block");
+        }
+        try {
+            func();
+        } catch (IllegalAccessException e) {
+            System.out.println("caught excp inside main");
+        }
+        // } catch (Exception e) {
+        // System.out.println("outer catch");
+        // }
+        System.out.println("Success");
+    }
+}
