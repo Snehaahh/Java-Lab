@@ -1,0 +1,68 @@
+import java.util.Scanner;
+import java.io.*;
+class File {
+public static void main(String a[]) {
+	Scanner sc=new Scanner(System.in);
+	int choice=0;
+	while(true) {
+		System.out.println("\nMenu\n1.Write\n2.Read\n3.Exit");
+		System.out.println("Enter your choice: ");
+		choice=sc.nextInt();
+		switch(choice) {
+			case 1: {
+				sc.nextLine();
+				System.out.print("Enter the name of the file to write to: ");
+				String name=sc.nextLine();
+				File file=new File(name);
+				try {
+					PrintWriter pw=new PrintWriter(file);
+					System.out.println("Enter the number of lines to write: ");
+					int n=sc.nextInt();
+					String str[]=new String[n];
+					System.out.println("Enter the input: ");
+					sc.nextLine();
+					for(int i=0;i<n;i++) {
+						str[i]=sc.nextLine();
+						pw.println(str[i]);
+					}
+					pw.close();
+					System.out.println("Done writing ");
+				}
+				catch(IOException e) {
+					System.out.println(e);
+				}
+			break;
+			}
+			case 2: {
+				sc.nextLibne();
+				System.out.println("\nEnter the name of the file to read: ");
+				String name=sc.nextLine();
+				File file=new File(name);
+				try {
+					FileReader fr=new FileReader(file);
+					BufferedReader br=new BufferedReader(fr);
+					String line;
+					System.out.println("Contents of file are..");
+					while((line=br.readLine()) != null) {
+						System.out.println(line);
+					}
+					br.close();
+				}
+				catch(FileNotFoundException e) {
+					System.out.println("File not found" +e.getMessage());
+				}
+				catch(IOException e) {
+					System.out.println("Error reading file" +e.getMessage());
+				}
+			break;
+			}
+			case 3: {
+				System.exit(0);
+			}
+			default: {
+				System.out.println("Wrong choice");
+			}
+		}
+	}
+}
+}
