@@ -1,0 +1,15 @@
+import java.io.Console;
+class cons {
+public static void main(String args[]) {
+String user,pw;
+char pass[];
+Console obj=System.console();
+System.out.println("Enter name:");
+user=obj.readLine();
+System.out.println("Enter pass: ");
+pass=obj.readPassword();
+pw=String.valueOf(pass);
+System.out.println("Username: "+user);
+System.out.println("Password: "+pass);
+System.out.println("Password is: "+pw);
+}} 
