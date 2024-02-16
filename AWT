@@ -1,0 +1,52 @@
+import java.awt.*;
+import java.awt.event.*;
+
+class Number extends Frame implements ActionListener {
+	
+	Label l1=new Label("Enter your number:");
+	Label l2=new Label("Previous number:");
+	Label l3=new Label("Next number:");
+	TextField T1=new TextField();
+	TextField T2=new TextField();
+	TextField T3=new TextField();
+	Button b=new Button("Generate");
+	Number() {
+		l1.setBounds(50,100,100,20);
+		l2.setBounds(50,140,100,20);
+		l3.setBounds(50,180,100,20);
+		T1.setBounds(200,100,100,20);
+		T2.setBounds(200,140,100,20);
+		T3.setBounds(200,180,100,20);
+		b.setBounds(50,250,50,20);
+
+		add(l1);
+		add(l2);
+		add(l3);
+		add(T1);
+		add(T2);
+		add(T3);
+		add(b);
+
+		b.addActionListener(this);
+
+		setLayout(null);
+		setSize(500,500);
+		setVisible(true);
+
+}
+
+public void actionPerformed(ActionEvent e) {
+	int n=Integer.parseInt(T1.getText());
+	if(e.getSource() == b) {
+		T2.setText(String.valueOf(n+1));
+		T3.setText(String.valueOf(n-1));
+}}
+
+}
+class awt1 {
+	public static void main(String args[]) {
+		new Number();
+}}
+
+
+	
