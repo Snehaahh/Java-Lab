@@ -34,7 +34,6 @@ class Number extends Frame implements ActionListener {
 		setVisible(true);
 
 }
-
 public void actionPerformed(ActionEvent e) {
 	int n=Integer.parseInt(T1.getText());
 	if(e.getSource() == b) {
