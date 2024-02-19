@@ -1,6 +1,9 @@
 import java.io.Console;
+
 class cons {
-public static void main(String args[]) {
+
+public static void main(String []) {
+
 String user,pw;
 char pass[];
 Console obj=System.console();
